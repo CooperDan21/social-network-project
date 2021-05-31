@@ -9,12 +9,11 @@ import {
 } from '../../redux/store';
 import {addMessageCreator, updateDialogMessagesCreator} from '../../redux/dialog-reducer';
 import Dialogs from './Dialogs';
+import {ReduxStoreType} from '../../redux/redux-store';
 
 
 type DialogsPropsType = {
-
-    newMessageText: string
-    store : StoreType
+    store : ReduxStoreType
 }
 
 
@@ -23,7 +22,7 @@ function DialogsContainer(props: DialogsPropsType) {
 
 
     const addMessage = () => {
-        props.store.dispatch(addMessageCreator(props.newMessageText))
+        props.store.dispatch(addMessageCreator())
     }
 
     const onMessageChanger = (body:string) => {
@@ -32,12 +31,12 @@ function DialogsContainer(props: DialogsPropsType) {
 
     return (
         <Dialogs
-            dialogs={props.store._state.dialogsPage.dialogs}
-            messages={props.store._state.dialogsPage.messages}
-            newMessageText={props.store._state.dialogsPage.newMessageText}
+            dialogs={state.dialogs}
+            messages={state.messages}
+            newMessageText={state.newMessageText}
             updateNewMessageBody={onMessageChanger}
             sendMessage={addMessage}
-            dialogsPage={props.store.getState().dialogsPage}/>
+            dialogsPage={state}/>
     )
 }
 

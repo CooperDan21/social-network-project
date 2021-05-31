@@ -46,8 +46,8 @@ const dialogReducer = (state: DialogDataType = initialState, action: ActionType)
     }
 }
 
-export const addMessageCreator = (newMessageText:string): AddMessageActionType =>
-    ({type: ADD_MESSAGE, newMessageText: newMessageText})
+export const addMessageCreator = (): AddMessageActionType =>
+    ({type: ADD_MESSAGE})
 
 export const updateDialogMessagesCreator = (newMessage: string): UpdateDialogMessageActionType =>
     ({type: UPDATE_DIALOG_MESSAGE, newMessage: newMessage})

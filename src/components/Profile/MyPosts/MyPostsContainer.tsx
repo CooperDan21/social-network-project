@@ -2,17 +2,17 @@ import React, {ChangeEvent, ChangeEventHandler} from 'react';
 import {ActionType, PostDataType, StoreType} from '../../../redux/store';
 import {addPostActionCreator, updateNewPostTextCreator} from '../../../redux/profile-reducer';
 import MyPosts from './MyPosts';
+import {ReduxStoreType} from '../../../redux/redux-store';
 
 type MyPostsPropsType = {
-    newPostText:string
-    store: StoreType
+    store: ReduxStoreType
 }
 
 function MyPostsContainer(props: MyPostsPropsType) {
     let state = props.store.getState()
 
     const addPost = () => {
-        props.store.dispatch(addPostActionCreator(props.newPostText))
+        props.store.dispatch(addPostActionCreator())
     }
     const onPostChanger = (text:string) => {
         let action = updateNewPostTextCreator(text)

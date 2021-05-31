@@ -39,7 +39,6 @@ export type RootStateType = {
 }
 export type AddPostActionType = {
     type: 'ADD-POST'
-    newPostText: string
 }
 export type ChangeNewTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
@@ -47,7 +46,7 @@ export type ChangeNewTextActionType = {
 }
 export type AddMessageActionType = {
     type: 'ADD-MESSAGE'
-    newMessageText: string
+
 }
 export type UpdateDialogMessageActionType = {
     type: 'UPDATE-DIALOG-MESSAGE'

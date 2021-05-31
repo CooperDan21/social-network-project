@@ -37,8 +37,8 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
     }
 }
 
-export const addPostActionCreator = (newPostText:string): AddPostActionType =>
-    ({type: ADD_POST, newPostText: newPostText})
+export const addPostActionCreator = (): AddPostActionType =>
+    ({type: ADD_POST})
 
 export const updateNewPostTextCreator = (newPostText: string): ChangeNewTextActionType =>
     ({type: UPDATE_NEW_POST_TEXT, newPostText: newPostText})

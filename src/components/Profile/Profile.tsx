@@ -3,11 +3,10 @@ import s from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import {ActionType, PostDataType, StoreType} from '../../redux/store';
+import {ReduxStoreType} from '../../redux/redux-store';
 
 type MyPostsPropsType = {
-
-    store: StoreType
-
+    store: ReduxStoreType
 }
 
 
@@ -16,7 +15,7 @@ function Profile (props: MyPostsPropsType) {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store} newPostText={props.store._state.profilePage.newPostText} />
+            <MyPostsContainer store={props.store} />
         </div>
     )
 }
