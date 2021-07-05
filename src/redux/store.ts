@@ -2,11 +2,11 @@ import profileReducer from './profile-reducer';
 import dialogReducer from './dialog-reducer';
 import sidebarReducer from './sidebar-reducer';
 
-export type MessageType = {
+ type MessageType = {
     id: number
     messages: string
 }
-export type DialogsType = {
+ type DialogsType = {
     id: number
     name: string
 }
@@ -23,7 +23,7 @@ export type ProfilePageType = {
     posts: Array<PostDataType>
     newPostText: string
 }
-export type DialogDataType = {
+ type DialogDataType = {
     dialogs: Array<DialogsType>
     messages: Array<MessageType>
     newMessageText: string

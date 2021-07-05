@@ -1,17 +1,27 @@
 import {
     ActionType,
-    PostDataType,
-    ProfilePageType,
     AddPostActionType,
     ChangeNewTextActionType
 } from './store';
+import {MessageType} from './dialog-reducer';
+
+export type PostDataType = {
+    id: number
+    messages: string
+    likes: number
+}
+
+export type ProfilePageType = {
+    posts: Array<PostDataType>
+    newPostText: string
+}
 
 const initialState: ProfilePageType = {
     posts: [
     {id: 1, messages: 'Hi', likes: 10},
     {id: 2, messages: 'Ho', likes: 20},
     {id: 3, messages: 'Bo', likes: 30}
-],
+] as Array<PostDataType>,
     newPostText: ''
 }
 const ADD_POST = 'ADD-POST'
@@ -27,11 +37,10 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
             }
             state.posts.push(newPost)
             state.newPostText = ''
-            return state
+            return {...state}
         case UPDATE_NEW_POST_TEXT:
-
             state.newPostText = action.newPostText
-            return state
+            return {...state}
         default:
             return state
     }

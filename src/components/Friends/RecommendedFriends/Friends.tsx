@@ -1,6 +1,5 @@
 import React from 'react';
-import s from './Friends.module.css'
-import {FriendsDataType, SidebarType} from '../../../redux/store';
+
 import OneFriend from '../OneFriend';
 import Post from '../../Profile/MyPosts/Posts/Post';
 import {ReduxStoreType} from '../../../redux/redux-store';

@@ -6,16 +6,14 @@ import {ActionType, PostDataType, StoreType} from '../../redux/store';
 import {ReduxStoreType} from '../../redux/redux-store';
 
 type MyPostsPropsType = {
-    store: ReduxStoreType
+
 }
-
-
 
 function Profile (props: MyPostsPropsType) {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store} />
+            <MyPostsContainer  />
         </div>
     )
 }
