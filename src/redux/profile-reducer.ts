@@ -35,12 +35,15 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
                 messages: state.newPostText,
                 likes: 0
             }
-            state.posts.push(newPost)
-            state.newPostText = ''
-            return {...state}
+            let stateCopy = {...state}
+            stateCopy.posts = {...state.posts}
+            stateCopy.posts.push(newPost)
+            stateCopy.newPostText = ''
+            return stateCopy
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newPostText
-            return {...state}
+            let copyState = {...state};
+            copyState.newPostText = action.newPostText
+            return copyState
         default:
             return state
     }

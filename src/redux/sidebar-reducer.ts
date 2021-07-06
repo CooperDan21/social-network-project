@@ -9,7 +9,6 @@ const initialState = {
 }
 
 const sidebarReducer = (state: SidebarType = initialState, action: ActionType) => {
-
     return state
 }
 
