@@ -53,7 +53,6 @@ let mapStateToProps = (state:ReduxStateType):MapStateToPropsType => {
     }
 }
 let mapDispatchToProps = (dispatch: Dispatch):MapDispatchToPropsType => {
-    debugger
     return {
         updateNewMessageBody: (body:string) => {
             dispatch(updateDialogMessagesCreator(body))

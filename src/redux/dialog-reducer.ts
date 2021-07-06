@@ -49,8 +49,9 @@ const dialogReducer = (state: DialogDataType = initialState, action: ActionType)
             state.newMessageText = ''
             return {...state}*/
             let stateCopy = {...state}
-            stateCopy.messages = {...state.messages}
+            stateCopy.messages = [...state.messages]
             stateCopy.messages.push(newMessage)
+            stateCopy.newMessageText = ''
             return stateCopy
         case UPDATE_DIALOG_MESSAGE:
             let copyState = {...state};

@@ -36,7 +36,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
                 likes: 0
             }
             let stateCopy = {...state}
-            stateCopy.posts = {...state.posts}
+            stateCopy.posts = [...state.posts]
             stateCopy.posts.push(newPost)
             stateCopy.newPostText = ''
             return stateCopy

@@ -14,6 +14,7 @@ function Dialogs(props: DialogsPropsType) {
     /*    let newMessageElem = React.createRef<HTMLTextAreaElement>();*/
 
     const onAddMessage = () => {
+
         /*props.addMessage(props.newMessageText)*/
         /*props.dispatch({type: 'ADD-MESSAGE', newMessageText: props.newMessageText})*/
         //props.dispatch(addMessageCreator(props.newMessageText))
