@@ -1,4 +1,4 @@
-import  {
+import {
     ActionType,
     AddMessageActionType,
     UpdateDialogMessageActionType
@@ -21,26 +21,28 @@ export type DialogDataType = {
 const ADD_MESSAGE = 'ADD-MESSAGE'
 const UPDATE_DIALOG_MESSAGE = 'UPDATE-DIALOG-MESSAGE'
 const initialState: DialogDataType = {
-        messages: [
-            {id: 1, messages: 'Hi'},
-            {id: 2, messages: 'I am here'},
-            {id: 3, messages: 'Right here'},
-            {id: 4, messages: 'Yohoo'},
-            {id: 5, messages: 'Lets dance'},
-        ] as Array<MessageType>,
-        newMessageText: '',
-        dialogs: [
-            {id: 1, name: 'Denis'},
-            {id: 2, name: 'Dima'},
-            {id: 3, name: 'Nikita'},
-            {id: 4, name: 'Artem'},
-            {id: 5, name: 'Veron'},
-        ] as Array<DialogsType>
-    }
+    messages: [
+        {id: 1, messages: 'Hi'},
+        {id: 2, messages: 'I am here'},
+        {id: 3, messages: 'Right here'},
+        {id: 4, messages: 'Yohoo'},
+        {id: 5, messages: 'Lets dance'},
+    ] as Array<MessageType>,
+    newMessageText: '',
+    dialogs: [
+        {id: 1, name: 'Denis'},
+        {id: 2, name: 'Dima'},
+        {id: 3, name: 'Nikita'},
+        {id: 4, name: 'Artem'},
+        {id: 5, name: 'Veron'},
+    ] as Array<DialogsType>
+}
 
 const dialogReducer = (state: DialogDataType = initialState, action: ActionType) => {
+    let stateCopy;
     switch (action.type) {
         case ADD_MESSAGE:
+            /* let newMessage = state.newMessageText*/
             const newMessage: MessageType = {
                 id: 6,
                 messages: state.newMessageText
@@ -48,17 +50,22 @@ const dialogReducer = (state: DialogDataType = initialState, action: ActionType)
             /*state.messages.push(newMessage)
             state.newMessageText = ''
             return {...state}*/
-            let stateCopy = {...state}
-            stateCopy.messages = [...state.messages]
-            stateCopy.messages.push(newMessage)
-            stateCopy.newMessageText = ''
-            return stateCopy
+            /*stateCopy = {...state,}
+            stateCopy.messages = [...state.messages];
+            stateCopy.messages.push(newMessage);
+            stateCopy.newMessageText = ''*/
+            return {...state,
+                messages: [...state.messages, newMessage],
+                newMessageText: ''
+            }
+
         case UPDATE_DIALOG_MESSAGE:
-            let copyState = {...state};
-            copyState.newMessageText = action.newMessage
-            return copyState
-           /* state.newMessageText = action.newMessage
-            return {...state}*/
+            return {
+                ...state,
+                newMessageText: action.newMessage
+            };
+        /* state.newMessageText = action.newMessage
+         return {...state}*/
         default:
             return state
     }
